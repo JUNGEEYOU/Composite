@@ -27,5 +27,5 @@ public abstract class MenuComponent {
     public void print() {
         throw new UnsupportedOperationException();
     }
-    public abstract Iterator<MenuComponent> createIterator();
+    public abstract Iterator createIterator();   // 예를들어 채식주의자용 메뉴 항목을 뽑을 때 필요
 }

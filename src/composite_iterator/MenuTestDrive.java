@@ -1,27 +1,23 @@
 package composite_iterator;
 
 public class MenuTestDrive {
+    public static void main(String args[]) {
 
-    public static void main(String[] args) {
-        // Menu는 복합 노드, MenuItem는 leaf 노드
-        // 1. 기본 메뉴 추가 : 팬케이크메뉴, 카페메뉴,
         MenuComponent pancakeHouseMenu =
-                new Menu("팬케이크 하우스 메뉴", "아침 메뉴");
+                new Menu("PANCAKE HOUSE MENU", "Breakfast");
         MenuComponent dinerMenu =
-                new Menu("객체마을 식당 메뉴", "점심 메뉴");
+                new Menu("DINER MENU", "Lunch");
         MenuComponent cafeMenu =
-                new Menu("카페 메뉴", "저녁 메뉴");
+                new Menu("CAFE MENU", "Dinner");
         MenuComponent dessertMenu =
-                new Menu("디저트 메뉴 ", "디저트를 즐기세요!");
+                new Menu("DESSERT MENU", "Dessert of course!");
 
-        MenuComponent allMenus = new Menu("전체 메뉴", "전체 메뉴");
+        MenuComponent allMenus = new Menu("ALL MENUS", "All menus combined");
 
-        // 2. 복합 객체의 add를 이용하여 각 메뉴들을 추가
         allMenus.add(pancakeHouseMenu);
         allMenus.add(dinerMenu);
         allMenus.add(cafeMenu);
 
-        // 2. 각 메뉴 항목을 추가
         pancakeHouseMenu.add(new MenuItem(
                 "K&B's Pancake Breakfast",
                 "Pancakes with scrambled eggs, and toast",
@@ -65,7 +61,7 @@ public class MenuTestDrive {
                 3.05));
         dinerMenu.add(new MenuItem(
                 "Steamed Veggies and Brown Rice",
-                "Steamed vegetables over brown rice",
+                "A medly of steamed vegetables over brown rice",
                 true,
                 3.99));
 
@@ -82,7 +78,6 @@ public class MenuTestDrive {
                 "Apple pie with a flakey crust, topped with vanilla icecream",
                 true,
                 1.59));
-
         dessertMenu.add(new MenuItem(
                 "Cheesecake",
                 "Creamy New York cheesecake, with a chocolate graham crust",
@@ -94,10 +89,26 @@ public class MenuTestDrive {
                 true,
                 1.89));
 
-        // 웨이터에게 최상위 메뉴를 전달
-        Waitress waitress = new Waitress(allMenus);
-        // 웨이터가 모든 메뉴를 출력
-        waitress.printMenu();
-    }
+        cafeMenu.add(new MenuItem(
+                "Veggie Burger and Air Fries",
+                "Veggie burger on a whole wheat bun, lettuce, tomato, and fries",
+                true,
+                3.99));
+        cafeMenu.add(new MenuItem(
+                "Soup of the day",
+                "A cup of the soup of the day, with a side salad",
+                false,
+                3.69));
+        cafeMenu.add(new MenuItem(
+                "Burrito",
+                "A large burrito, with whole pinto beans, salsa, guacamole",
+                true,
+                4.29));
 
+        Waitress waitress = new Waitress(allMenus);
+
+        waitress.printVegetarianMenu();
+        //waitress.printMenu();
+
+    }
 }

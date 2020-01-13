@@ -47,6 +47,6 @@ public class Menu extends MenuComponent {
         }
     }
     public Iterator createIterator(){
-        return new CompositeIterator(menuComponents.iterator());
+        return new CompositeIterator(menuComponents.iterator());   // ArrayList 이터레이터
     }
 }
